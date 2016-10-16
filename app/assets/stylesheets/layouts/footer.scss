@@ -1,0 +1,206 @@
+.footer {
+  background-color: $footerGray;
+  position: relative;
+
+  &__inner {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 30px $mobilePadding 0 $mobilePadding;
+    position: relative;
+
+    @media screen and (min-width: 1024px) {
+      padding-bottom: 30px;
+      padding-left: $tabletPadding;
+      padding-right: $tabletPadding;
+      padding-top: 40px;
+    }
+  }
+
+  &__col {
+    box-sizing: border-box;
+    display: none;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+
+    @media screen and (min-width: 1024px) {
+      display: inline-block;
+      margin-right: 2.666666%;
+      width: 23%;
+    }
+
+    &_first {
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+      text-align: center;
+      width: auto;
+      li {
+        color: #000;
+        font-family: $fontOpenSans;
+        font-size: 16px;
+        margin: 0 0 25px 0;
+        a, a:visited {
+          color: inherit;
+          text-decoration: none;
+
+          &:hover, &:active {
+            color: $red;
+          }
+        }
+      }
+
+      @media screen and (min-width: 640px) {
+        display: inline-block;
+        margin-right: 3.5%;
+        text-align: left;
+        width: 48%;
+
+        li {
+          font-size: 18px;
+          margin-bottom: 20px;
+
+          &.mobile-only {
+            display: none;
+          }
+        }
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        margin-right: 3%;
+        width: 31%;
+      }
+    }
+
+    &_second {
+      @media screen and (min-width: 640px) {
+        display: inline-block;
+        margin-right: 0;
+        width: 48%;
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        display: inline-block;
+        margin-right: 3%;
+        width: 31%;
+      }
+    }
+
+    &_third {
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        display: inline-block;
+        margin-right: 0;
+        width: 31%;
+      }
+    }
+
+    &_fourth {
+      @media screen and (min-width: 1024px) {
+        display: inline-block;
+        margin-right: 0;
+      }
+    }
+
+    .footer-col {
+      &__title {
+        color: $normalGray;
+        font-family: $fontOpenSans;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 35px 0;
+      }
+
+      &__p {
+        color: $normalGray;
+        font-family: $fontOpenSans;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 0 35px 0;
+
+        span {
+          display: block;
+
+          a, a:visited {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+              color: $red;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &__magic {
+        color: $darkGray;
+        display: block;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 18px;
+        padding-left: 48px;
+        position: relative;
+        text-decoration: none;
+
+        &::before {
+          color: $orange;
+          font-family: "icons";
+          font-size: 35px;
+          height: 5px;
+          left: -7px;
+          position: absolute;
+          top: 3px;
+          transition: .2s color;
+          width: 5px;
+        }
+
+        &:hover::before {
+          color: $red;
+          transition: 0s color;
+        }
+
+        .address__text {
+          font-family: $fontOpenSans;
+          font-size: 14px;
+
+          .address__city {
+            color: $darkGray;
+            display: block;
+          }
+
+          .address__street {
+            color: $normalGray;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .social-icons_footer {
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+
+    @media screen and (min-width: 1024px) {
+      border-top: 1px #cdcdcd solid;
+      margin: 0;
+      padding-top: 25px;
+    }
+  }
+
+  &__copyrights {
+    border-top: 1px #cdcdcd solid;
+    color: $lightGray;
+    font-family: $fontOpenSans;
+    font-size: 14px;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+
+    @media screen and (min-width: 1024px) {
+      border-top: none;
+    }
+  }
+}

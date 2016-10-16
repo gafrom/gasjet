@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: ''
+  password: ''
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/gasjet_dev
+
+test:
+  <<: *default
+  database: db/gasjet_test
+
+production:
+  <<: *default
+  database: db/gasjet

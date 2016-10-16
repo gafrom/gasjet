@@ -1,0 +1,25 @@
+// Rails guide:
+// Sprockets provides some directives … They are very primitive 
+// and do not work well with Sass files. Instead, use Sass’s 
+// native @import directive which sass-rails has customized 
+// to integrate with the conventions of your Rails projects.
+
+// Thus, here we go!
+
+// Third party
+@import 'normalize';
+@import 'skeleton';
+
+// Add shared variables into scope
+@import 'shared/variables';
+// then add parent classes
+@import 'shared/common';
+
+// Fontello fonts
+// @import '../../../vendor/assets/fontello/css/icons-codes';
+// @import 'fonts/*';
+
+// All the rest
+@import 'layouts/*';
+// @import 'components/*';
+@import '*';

@@ -1,0 +1,236 @@
+html {
+  min-height: 100%;
+  position: relative;
+}
+.container {
+  padding: 55px $mobilePadding 30px $mobilePadding;
+  position: relative;
+
+  /* Larger than phablet (also point when grid becomes active) */
+  @media (min-width: 550px) {
+    padding: 60px $tabletPadding 30px $tabletPadding;
+  }
+
+  /* Larger than tablet */
+  @media (min-width: 750px) {
+    padding: 70px $tabletPadding 30px $tabletPadding;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 200px $tabletPadding 100px $tabletPadding;
+  }
+
+  &__catalog {
+    margin: 2em 0;
+  }
+
+  h1 {
+    font-weight: 200;
+    padding-bottom: 0.1em;
+    margin: 0;
+    border-bottom: 1px solid #e9e3e3;
+
+  }
+  h2, h3 {
+    font-weight: 300;
+  }
+}
+
+
+
+
+// Standard site button
+
+.standard-button, .standard-button:visited {
+  background-color: #fff;
+  border: 1px #3d3d3d solid;
+  color: #3d3d3d;
+  cursor: pointer;
+  display: block;
+  font-family: $fontOpenSans;
+  font-size: 18px;
+  height: 45px;
+  line-height: 45px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .2s all;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #ff6f1a;
+    border: 1px #ff6f1a solid;
+    color: #fff;
+  }
+
+  &:active {
+    background-color: #eb2f07;
+    border: 1px #eb2f07 solid;
+    color: #fff;
+    top: 1px;
+  }
+
+  @media screen and (min-width: 640px) {
+    display: inline-block;
+    padding: 0 45px;
+    vertical-align: middle;
+  }
+}
+
+// Binoculars icons
+
+.binoculars {
+  &::before {
+    background-color: rgba(0,0,0,.6);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: .2s opacity;
+    width: 100%;
+  }
+
+  &::after {
+    background: url(/img/binoculars.png) no-repeat 50% 50% transparent;
+    background-size: 100%;
+    content: "";
+    height: 54px;
+    left: 50%;
+    margin-left: -38px;
+    margin-top: -27px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transition: .2s opacity;
+    width: 76px;
+  }
+
+  &:hover::before, &:hover::after, {
+    opacity: 1;
+  }
+}
+
+// Social icons
+
+.social-icons {
+  margin: 0;
+  padding: 0;
+  transition: .2s all;
+
+  li {
+    font-size: 2em;
+    display: inline-block;
+    list-style: none;
+    margin-right: 18px;
+    vertical-align: middle;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a, a:visited {
+      color: $normalGray;
+      position: relative;
+      text-decoration: none;
+
+      &.social-icon {
+        &_vk:hover {
+          color: #4c75a3;
+        }
+        &_in:hover {
+          color: #1985bc;
+        }
+        &_fb:hover {
+          color: #44609d;
+        }
+        &_twitter:hover {
+          color: #55acee;
+        }
+        &_instagram:hover {
+          color: #125688;
+        }
+      }
+    }
+  }
+}
+
+// Common breadcrumbs
+
+.common-breadcrumbs {
+  border-bottom: 1px $footerGray solid;
+  margin-bottom: 20px;
+  padding: 48px $mobilePadding 5px $mobilePadding;
+  position: relative;
+  text-align: left;
+
+  @media screen and (min-width: 1024px) {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding: 0 $tabletPadding;
+  }
+
+  &_vacancies {
+    padding-top: 50px;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 160px;
+    }
+  }
+
+  ul {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 0;
+
+    @media screen and (min-width: 1024px) {
+      border-bottom: 1px $footerGray solid;
+    }
+
+    li {
+      color: $darkGray;
+      font-family: $fontOpenSans;
+      font-size: 16px;
+      font-weight: 300;
+      list-style: none;
+      padding: 8px 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @media screen and (min-width: 640px) {
+        display: inline-block;
+        margin-right: 50px;
+        vertical-align: middle;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 22px;
+        margin-right: 80px;
+        padding: 30px 0;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-right: 100px;
+      }
+
+      a, a:visited {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      &.active {
+        color: $red;
+        cursor: default;
+      }
+    }
+  }
+}

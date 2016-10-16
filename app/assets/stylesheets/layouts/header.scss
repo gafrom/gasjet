@@ -1,0 +1,270 @@
+.header {
+  background-color: $white;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 $mobilePadding;
+  position: fixed;
+  top: 0;
+  transition: .2s all;
+  width: 100%;
+  z-index: 250;
+
+  @media screen and (min-width: 1024px) {
+    background-color: rgba($white,.8);
+    box-shadow: none;
+    height: 160px;
+    padding: 0 $tabletPadding;
+
+    .social-icons_header {
+      opacity: 1;
+      top: 44px;
+      visibility: visible;
+    }
+
+    &_compact {
+      background-color: $white;
+      box-shadow: 0 0 8px 0 rgba($darkGray, .3);
+      height: 80px;
+
+      li {
+        font-size: 16px;
+      }
+
+      .header__logo {
+        height: 48px;
+        margin-top: -24px;
+        width: 150px;
+      }
+
+      .header__menu {
+        bottom: 30px;
+      }
+
+      .social-icons_header {
+        opacity: 0;
+        top: 30px;
+        visibility: hidden;
+      }
+    }
+  }
+
+  &_compact {
+    box-shadow: 0 0 8px 10px rgba($darkGray, .3);
+    height: 48px;
+
+    .header__logo {
+      height: 32px;
+      margin-top: -12px;
+      width: 100px;
+    }
+  }
+
+  &__inner {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1300px;
+    position: relative;
+  }
+
+  &__logo {
+    color: transparent;
+    height: 32px;
+    margin: -12px 0 0 0;
+    position: absolute;
+    text-indent: -9999px;
+    top: 50%;
+    transition: .2s all;
+    width: 100px;
+
+    @media screen and (min-width: 1024px) {
+      height: 135px;
+      margin-top: -32px;
+      width: 200px;
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1200px) {
+      height: 48px;
+      margin-top: -24px;
+      width: 150px;
+    }
+
+    .logo-picture {
+      background: asset-url('logo.png') no-repeat 50% 50% transparent;
+      background-size: contain;
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .social-icons_header {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    visibility: hidden;
+  }
+
+  &__menu {
+    background-color: $white;
+    height: 0;
+    left: -$mobilePadding;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 10px 0;
+    position: absolute;
+    right: -$mobilePadding;
+    text-align: center;
+    top: 48px;
+    transition: .2s height;
+
+    &_mobile-visible {
+      height: 125px;
+      box-shadow: 0 2px 5px grey;
+    }
+
+    @media screen and (min-width: 1024px) {
+      background-color: transparent;
+      bottom: 40px;
+      display: block;
+      height: auto;
+      left: auto;
+      padding-bottom: 0;
+      right: 0;
+      top: auto;
+    }
+
+    li {
+      display: block;
+      font-family: $fontOpenSans;
+      font-size: 16px;
+      transition: .2s all;
+
+      a, a:visited {
+        color: $normalGray;
+        display: block;
+        padding: 8px 0;
+        text-decoration: none;
+
+        &:active, &:hover {
+          border-bottom: none;
+          color: $red;
+        }
+      }
+
+      &.active a {
+        color: $red;
+      }
+
+      @media screen and (min-width: 1024px) {
+        display: inline-block;
+        margin-right: 35px;
+        text-transform: uppercase;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a, a:visited {
+          color: $normalGray;
+          display: inline;
+          padding: 0;
+
+          &:hover {
+            border-bottom: 1px $normalGray solid;
+            color: $normalGray;
+          }
+
+          &:active {
+            border-bottom: none;
+            color: $red;
+          }
+        }
+
+        &.active a {
+          color: $red;
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__hamburger {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 16px;
+    margin: 0;
+    margin-top: -8px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transition: background .3s;
+    width: 16px;
+
+    &:focus {
+      outline: none;
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+
+    span {
+      background: $darkGray;
+      display: block;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 7px;
+
+      &::before, &::after {
+        background-color: $darkGray;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transition: .3s all;
+        width: 100%;
+      }
+
+      &::before {
+        top: -6px;
+      }
+
+      &::after {
+        bottom: -6px;
+      }
+    }
+
+    &.activated {
+      span {
+        background-color: transparent;
+
+        &::before, &::after {
+          background-color: $red;
+        }
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+        &::after {
+          bottom: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
