@@ -1,0 +1,87 @@
+.admin-heading {
+  color: rgb(80, 80, 80);
+  font-weight: normal;
+}
+
+.avatar {
+  transition: .2s all;
+  vertical-align: middle;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin: 5px;
+  a {
+    border-radius: 66px;
+    box-shadow: 3px 3px 6px lightgrey;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    &.avatar-male {
+      background-image: asset-url('male.png');
+    }
+    &.avatar-female {
+      background-image: asset-url('female.png');
+    }
+    &:hover {
+      border: none;
+      box-shadow: 3px 3px 6px #b1b1b1;
+    }
+  }
+  &:last-child {
+    margin-right: 8px;
+  }
+}
+
+.tag {
+  background-color: rgb(169, 111, 204);
+  color: white;
+  font-weight: bold;
+  border-radius: 1em;
+  padding: 0px 9px;
+  font-size: 70%;
+  margin: 0 5px;
+  &.twofold {
+    background-color: transparent;
+    > * {
+      padding: 0px 9px;
+      margin: 0;
+      background-color: #ba86d5;
+    }
+    :first-child {
+      border-top-left-radius: 1em;
+      border-bottom-left-radius: 1em;
+      background-color: #5dba34;
+    }
+    :last-child {
+      border-top-right-radius: 1em;
+      border-bottom-right-radius: 1em;
+      background-color: grey;
+    }
+  }
+}
+
+
+.container .common-breadcrumbs {
+  ul { 
+    position: relative;
+    li {
+      display: block;
+      padding: 0.5em 0;
+      &.separator {
+        color: #bfbfbf;
+        font-style: italic;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.trashable:hover {
+  .icon-trash {
+    opacity: 0.3;
+  }
+}

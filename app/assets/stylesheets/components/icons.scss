@@ -1,0 +1,49 @@
+.icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  &.icon-add {
+    width: 66px;
+    height: 66px;
+    background-image: asset-url('icons/add.png');
+    border-radius: 33px;
+    border: dashed 1px RGBA(0, 147, 33, 0.3);
+    &:hover {
+      border: dashed 1px RGB(0, 147, 33);
+    }
+  }
+  &.icon-trash {
+    width: 24px;
+    height: 24px;
+    background-image: asset-url('icons/trash.png');
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  &.clickable {
+    cursor: pointer;
+  }
+  &.in-corner {
+    position: absolute;
+    right: 5%;
+    top: 0;
+  }
+  &.hoverable {
+    &.icon-trash:hover {
+      opacity: 0.8;
+    }
+    &-shadow {
+      &:hover {
+        box-shadow: 3px 3px 3px #b1b1b1;
+      }
+    }
+    &-spin {
+      transition: transform 0.3s ease-in-out;
+      animation: none;
+      &:hover {
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
