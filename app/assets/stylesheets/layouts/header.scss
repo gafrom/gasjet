@@ -77,9 +77,9 @@
     width: 100px;
 
     @media screen and (min-width: 1024px) {
-      height: 135px;
+      height: 85px;
       margin-top: -32px;
-      width: 200px;
+      width: 100px;
     }
 
     @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -89,7 +89,7 @@
     }
 
     .logo-picture {
-      background: asset-url('logo.png') no-repeat 50% 50% transparent;
+      background: asset_url('logo.png') no-repeat 50% 50% transparent;
       background-size: contain;
       display: block;
       height: 100%;
