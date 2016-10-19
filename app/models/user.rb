@@ -7,6 +7,6 @@ class User < ApplicationRecord
   enum role: { customer: 0, chief: 1 }
 
   def chief?
-    role == :chief
+    role.to_sym == :chief
   end
 end
