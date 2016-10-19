@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/forbidden'
+
   namespace :admin, path: 'fiddle' do
     root 'dashboard#index'
   end

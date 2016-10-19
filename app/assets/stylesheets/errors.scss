@@ -1,0 +1,16 @@
+.errors_controller {
+  height: 100%;
+  background-color: antiquewhite;
+  &__content {
+    height: 100%; 
+    h1 {
+      top: 40%;
+      position: relative;
+      font-family: Lobster;
+      font-size: 300%;
+      font-weight: 100;
+      color: grey;
+      text-align: center;
+    }
+  }
+}

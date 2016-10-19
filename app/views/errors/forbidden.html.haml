@@ -1,0 +1,10 @@
+= render 'layouts/meta_tags'
+= render 'errors/meta_tags'
+
+= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'errors', media: 'all', 'data-turbolinks-track': 'reload'
+
+.errors_controller
+  .errors_controller__background
+  .errors_controller__content
+    %h1 Похоже, что у Вас нет прав смотреть сюда
