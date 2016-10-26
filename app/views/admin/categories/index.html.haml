@@ -1,0 +1,23 @@
+%h1 Категории товаров
+
+%table
+  %thead
+    %tr
+      %th= t '.name'
+      %th= t '.slug'
+      %th
+      %th
+      %th
+
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= category.name
+        %td= category.slug
+        %td= link_to 'Показать', admin_category_path(category)
+        %td= link_to 'Редактировать', edit_admin_category_path(category)
+        %td= link_to 'Убить', admin_category_path(category), :method => :delete, :data => { :confirm => 'Точняк?' }
+
+%br
+
+= link_to 'Создать новую категорию товаров', new_admin_category_path

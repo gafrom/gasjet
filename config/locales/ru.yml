@@ -1,0 +1,8 @@
+ru:
+  admin:
+    categories:
+      index:
+        name: Название
+        slug: Ссылка (slug)
+      create:
+        success: Категория была успешно создана
