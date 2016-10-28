@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin, path: 'fiddle' do
     resources :categories
+    resources :sub_categories
     root 'dashboard#index'
   end
 
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
   resources :products, only: :show, as: 'products'
 
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
