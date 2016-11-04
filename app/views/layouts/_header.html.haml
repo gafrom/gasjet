@@ -11,7 +11,7 @@
         %ul.header__menu
           - unless signed_in?
             %li= link_to 'Вход', admin_root_path, title: 'Для зарегистрированных пользователей'
-          %li= link_to 'Регистрация', new_user_registration_path, title: 'Зарегистрировать новую учётную запись'
+            %li= link_to 'Регистрация', new_user_registration_path, title: 'Зарегистрировать новую учётную запись'
           %li= link_to 'Оптовикам', categories_path, title: 'Предложения для оптовиков'
 
         %button.header__hamburger
