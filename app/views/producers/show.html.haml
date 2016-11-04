@@ -1,0 +1,12 @@
+
+%p= @producer.name
+
+%p
+  Сайт:
+  = @producer.web_site
+%p
+  Описание:
+  = @producer.description
+
+%p Картинка
+= image_tag @producer.image_url

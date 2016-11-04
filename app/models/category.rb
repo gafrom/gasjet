@@ -19,6 +19,8 @@
 #
 
 class Category < ApplicationRecord
+  include Imagable
+
   belongs_to :parent, :class_name => 'Category'
   has_many :children, :class_name => 'Category', :foreign_key => 'category_id'
 

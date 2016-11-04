@@ -26,6 +26,8 @@
 #
 
 class Product < ApplicationRecord
+  include Imagable
+
   belongs_to :producer
   belongs_to :category
 

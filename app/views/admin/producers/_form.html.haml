@@ -1,0 +1,24 @@
+= form_for [:admin, @producer] do |f|
+  - if @producer.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@producer.errors.count, "error")} prohibited this producer from being saved:"
+      %ul
+        - @producer.errors.full_messages.each do |msg|
+          %li= msg
+  %p Название производителя
+  = f.text_field :name
+
+  %p Ссылка в адресе (slug)
+  = f.text_field :slug
+
+  %p Веб сайт
+  = f.text_field :web_site
+
+  %p Описание
+  = f.text_area :description
+
+  %p Картинка
+  = file_field :producer, :image, accept: 'image/*'
+
+  .actions
+    = f.submit 'Save'

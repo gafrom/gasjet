@@ -13,4 +13,9 @@
 #
 
 class Producer < ApplicationRecord
+  include Imagable
+ 
+  has_many :products
+
+  validates :name, :slug, presence: true
 end
