@@ -5,6 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string
 #  slug        :string
+#  image       :string
 #  category_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -21,8 +22,8 @@
 class Category < ApplicationRecord
   include Imagable
 
-  belongs_to :parent, :class_name => 'Category'
-  has_many :children, :class_name => 'Category', :foreign_key => 'category_id'
+  belongs_to :parent, class_name: 'Category', optional: true
+  has_many :children, class_name: 'Category', foreign_key: 'category_id'
 
   has_many :products
 

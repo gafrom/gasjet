@@ -21,11 +21,11 @@ module Imagable
     self.image = filename
 
     true
-  rescue
-    msg = 'load error'
-    self.errors[:image] << msg
+  # rescue
+  #   msg = 'load error'
+  #   self.errors[:image] << msg
 
-    false
+  #   false
   end
 
   private

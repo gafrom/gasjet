@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +19,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new product_params
 
     if @product.load_image && @product.save
-      redirect_to [:admin, @product], notice: 'Product was successfully created.'
+      redirect_to [:admin, @product], notice: I18n.t('.admin.products.create.success')
     else
       render :new
     end
@@ -29,7 +29,7 @@ class Admin::ProductsController < ApplicationController
     @product.assign_attributes product_params
 
     if @product.load_image && @product.save
-      redirect_to [:admin, @product], notice: 'Product was successfully updated.'
+      redirect_to [:admin, @product], notice: I18n.t('.admin.products.update.success')
     else
       render :edit
     end

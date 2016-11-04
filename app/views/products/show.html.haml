@@ -12,5 +12,4 @@
   Описание:
   = @product.description
 
-%p Картинка
-= image_tag @product.image_url
+= image_tag @product.image_url, alt: "Картинка - #{@product.name}"

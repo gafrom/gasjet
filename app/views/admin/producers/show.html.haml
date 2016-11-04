@@ -13,8 +13,8 @@
   Описание:
   = @producer.description
 
-%p Картинка
-= image_tag @producer.image_url
+= image_tag @producer.image_url, alt: "Картинка - #{@producer.name}"
+%br
 
 = link_to 'Edit', edit_admin_producer_path(@producer)
 \|

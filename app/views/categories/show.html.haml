@@ -3,6 +3,9 @@
 %p
   Название:
   = @category.name
+
+= image_tag @category.image_url, alt: "Картинка - #{@category.name}"
+
 %ul
   Подкатегории:
   - @category.children.each do |sub_category|

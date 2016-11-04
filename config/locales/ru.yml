@@ -6,3 +6,22 @@ ru:
         slug: Ссылка (slug)
       create:
         success: Категория была успешно создана
+
+    products:
+      index:
+        name: Название
+        slug: Ссылка (slug)
+        description: Описание
+        image: Картинка
+      create:
+        success: Товар был успешно создан
+
+    producers:
+      index:
+        name: Название
+        slug: Ссылка (slug)
+        web_site: Веб-сайт
+        description: Описание
+        image: Картинка
+      create:
+        success: Производитель был успешно создан

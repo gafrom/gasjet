@@ -6,10 +6,15 @@
 %p
   Cсылка:
   = @category.slug
-%ul
-  Подкатегории:
-  - @category.children.each do |sub_category|
-    %li= link_to sub_category.name, admin_category_path(sub_category)
+
+= image_tag @category.image_url, alt: "Картинка - #{@category.name}"
+%br
+
+- if @category.children.any?
+  %ul
+    Подкатегории:
+    - @category.children.each do |sub_category|
+      %li= link_to sub_category.name, admin_category_path(sub_category)
 
 = link_to 'Редактировать', edit_admin_category_path(@category)
 \|

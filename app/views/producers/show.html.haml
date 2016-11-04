@@ -8,5 +8,4 @@
   Описание:
   = @producer.description
 
-%p Картинка
-= image_tag @producer.image_url
+= image_tag @producer.image_url, alt: "Картинка - #{@producer.name}"

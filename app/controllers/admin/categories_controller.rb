@@ -23,7 +23,7 @@ class Admin::CategoriesController < AdminController
   def create
     @category = Category.new(category_params)
 
-    if @category.save
+    if @category.load_image && @category.save
       redirect_to admin_category_path(@category), notice: I18n.t('.admin.categories.create.success')
     else
       render :new
@@ -32,7 +32,9 @@ class Admin::CategoriesController < AdminController
 
   # PATCH/PUT /categories/1
   def update
-    if @category.update(category_params)
+    @category.assign_attributes category_params
+
+    if @category.load_image && @category.save
       redirect_to admin_category_path(@category), notice: I18n.t('admin.categories.create.success')
     else
       render :edit
@@ -54,6 +56,6 @@ class Admin::CategoriesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name, :slug, :category_id)
+      params.require(:category).permit(:name, :slug, :category_id, :image)
     end
 end

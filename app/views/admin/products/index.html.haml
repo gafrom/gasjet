@@ -1,16 +1,32 @@
-%h1 Listing admin_products
+%h1 Товары
 
 %table
   %thead
     %tr
-      %th
+      %th= t '.image'
+      %th= t '.name'
+      %th= t '.slug'
+      %th= t '.description'
+      %th= t '.product_type'
+      %th= t '.weight'
+      %th= t '.category'
+      %th= t '.producer'
       %th
       %th
 
   %tbody
     - @products.each do |product|
       %tr
-        %td= link_to 'Show', [:admin, product]
+        %td
+          = link_to [:admin, product] do 
+            = image_tag product.image_url, alt: "Нет картинки для #{product.name}", class: 'image__small'
+        %td= product.name
+        %td= product.slug
+        %td= product.description
+        %td= product.product_type
+        %td= product.weight
+        %td= product.category.name
+        %td= product.producer.name
         %td= link_to 'Edit', edit_admin_product_path(product)
         %td= link_to 'Destroy', [:admin, product], :method => :delete, :data => { :confirm => 'Are you sure?' }
 

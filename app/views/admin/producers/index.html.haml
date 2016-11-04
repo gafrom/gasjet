@@ -1,16 +1,26 @@
-%h1 Listing admin_producers
+%h1 Производители
 
 %table
   %thead
     %tr
-      %th
+      %th= t '.image'
+      %th= t '.name'
+      %th= t '.slug'
+      %th= t '.web_site'
+      %th= t '.description'
       %th
       %th
 
   %tbody
     - @producers.each do |producer|
       %tr
-        %td= link_to 'Show', producer
+        %td
+          = link_to [:admin, producer] do 
+            = image_tag producer.image_url, alt: "Нет картинки для #{producer.name}", class: 'image__small'
+        %td= producer.name
+        %td= producer.slug
+        %td= producer.web_site
+        %td= producer.description
         %td= link_to 'Edit', edit_admin_producer_path(producer)
         %td= link_to 'Destroy', producer, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
