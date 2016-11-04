@@ -1,0 +1,30 @@
+= form_for([:admin, @product], multipart: true) do |f|
+  - if @product.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this admin_product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+  %p Название товара
+  = f.text_field :name
+
+  %p Ссылка в адресе (slug)
+  = f.text_field :slug
+
+  %p Вес
+  = f.text_field :weight
+
+  %p Описание
+  = f.text_area :description
+
+  %p Картинка
+  = file_field :product, :image, accept: 'image/*'
+
+  %p Категория
+  = f.collection_select :category_id, Category.all, :id, :name
+
+  %p Производитель
+  = f.collection_select :producer_id, Producer.all, :id, :name
+
+  .actions
+    = f.submit 'Save'

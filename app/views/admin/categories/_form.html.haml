@@ -5,10 +5,12 @@
       %ul
         - @category.errors.full_messages.each do |msg|
           %li= msg
-  %p Название:
+  %p Название
   = f.text_field :name
   %p Ссылка в адресе (slug)
   = f.text_field :slug
+  %p Категория-родитель
+  = f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Не выбирай здесь ничего если хочешь создать топ категорию'
 
   .actions
     = f.submit 'Save'

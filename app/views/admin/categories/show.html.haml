@@ -4,12 +4,12 @@
   Название:
   = @category.name
 %p
-  Именная ссылка:
+  Cсылка:
   = @category.slug
 %ul
-  %h4 Подкатегории:
-  - @category.sub_categories.each do |sub_category|
-    %li= link_to sub_category.name, admin_sub_category_path(sub_category)
+  Подкатегории:
+  - @category.children.each do |sub_category|
+    %li= link_to sub_category.name, admin_category_path(sub_category)
 
 = link_to 'Редактировать', edit_admin_category_path(@category)
 \|

@@ -1,4 +1,11 @@
-%p= @product.name
+%p#notice= notice
+
+%p
+  Название:
+  = @product.name
+%p
+  Cсылка:
+  = @product.slug
 %p
   Категория:
   = @product.category.name
@@ -14,3 +21,8 @@
 
 %p Картинка
 = image_tag @product.image_url
+
+
+= link_to 'Редактировать', edit_admin_product_path(@product)
+\|
+= link_to 'Ко списку товаров', admin_products_path

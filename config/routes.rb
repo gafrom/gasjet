@@ -3,17 +3,15 @@ Rails.application.routes.draw do
 
   namespace :admin, path: 'fiddle' do
     resources :categories
-    resources :sub_categories
+    resources :products
     root 'dashboard#index'
   end
 
   root 'welcome#home'
   get 'contacts', to: 'welcome#contacts'
 
-  resources :categories, only: [:show, :index] do
-    resources :sub_categories, only: :show
-  end
-  resources :products, only: :show, as: 'products'
+  resources :categories, only: [:show, :index], param: :slug
+  resources :products, only: :show, as: 'products', param: :slug
 
   devise_for :users
 end
