@@ -5,14 +5,21 @@
     %header.header
       .header__inner
         %h1.header__logo= link_to 'GasJet LLC', root_path, class: 'logo-picture'
-        %ul.social-icons.social-icons_header
-          %li= link_to '', 'https://github.com/gafrom/fiddle', class: 'icon-github-circled', title: "Source code"
 
-        %ul.header__menu
-          - unless signed_in?
-            %li= link_to 'Вход', admin_root_path, title: 'Для зарегистрированных пользователей'
-            %li= link_to 'Регистрация', new_user_registration_path, title: 'Зарегистрировать новую учётную запись'
-          %li= link_to 'Оптовикам', categories_path, title: 'Предложения для оптовиков'
-
-        %button.header__hamburger
-          %span
+        .header__menu
+          .header__menu-content
+            .header__menu-content_auth
+              %ul
+                - unless signed_in?
+                  %li= link_to 'Вход', admin_root_path, title: 'Для зарегистрированных пользователей'
+                  %li= link_to 'Регистрация', new_user_registration_path, title: 'Зарегистрировать новую учётную запись'
+            .header__menu-content_menu-inner
+              %ul
+                %li= link_to 'Оптовикам', categories_path, title: 'Предложения для оптовиков'
+                %li= link_to 'Розница', categories_path, title: 'Предложения для оптовиков'
+                %li= link_to 'История', categories_path, title: 'Предложения для оптовиков'
+                %li= link_to 'Контакты', categories_path, title: 'Предложения для оптовиков'
+          .header__menu-shorthands
+            %ul
+              %li.icon-search
+              %li.icon-basket-1

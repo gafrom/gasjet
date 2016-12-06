@@ -1,3 +1,18 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-block {
+  background-image: asset-url('welcome.jpg');
+  background-size: cover;
+  height: 400px;
+  &__side-bar {
+    display: inline-block;
+    margin-left: 50px;
+    background-color: white;
+    ul {
+      padding-right: 40px;
+      li {
+        margin-top: 40px;
+        padding: 10px 20px;
+        border: 2px solid #515151;
+      }
+    }
+  }
+}
