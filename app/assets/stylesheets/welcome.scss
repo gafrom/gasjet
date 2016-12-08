@@ -1,18 +1,51 @@
 .main-block {
-  background-image: asset-url('welcome.jpg');
+  position: relative;
+  background-color: grey;
+  background-image: asset-url('welcome_stub.jpg');
   background-size: cover;
   height: 400px;
+
   &__side-bar {
     display: inline-block;
-    margin-left: 50px;
-    background-color: white;
+    margin-left: 0;
+    font-weight: 100;
+    font-size: 18px;
     ul {
       padding-right: 40px;
+      padding-left: 0;
       li {
-        margin-top: 40px;
-        padding: 10px 20px;
-        border: 2px solid #515151;
+        margin-top: 20px;
+        padding: 5px 20px;
+        border-left-style: solid;
+        border-width: 10px;
+        border-color: white;
+        transition: .2s all;
+        &:hover {
+          padding: 5px 10px;
+          border-width: 20px;
+        }
+        a {
+          color: white;
+          text-decoration: none;
+        }
       }
+    }
+  }
+  &__message {
+    position: absolute;
+    top: 350px;
+    left: 100px;
+    h1 {
+      line-height: 1;
+      letter-spacing: .02em;
+      color: coral;
+      font-size: 80px;
+      font-weight: 800;
+      border: none;
+    }
+    p {
+      font-weight: 100;
+      font-size: 30px;
     }
   }
 }

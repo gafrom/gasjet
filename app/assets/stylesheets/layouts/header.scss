@@ -9,12 +9,11 @@
   width: 100%;
   z-index: 250;
 
-
   .header__menu {
-    margin: 8px;
+    margin: 30px 8px;
     &-content {
       float: left;
-      margin: 20px;
+      margin: 0 20px;
       &_auth {
         font-size: 14px;
         ul {
@@ -60,7 +59,7 @@
       position: relative;
       float: left;
       border-left: 1px solid lightgrey;
-      margin: 20px 20px 20px 0;
+      margin: 0 20px 0 0;
       ul {
         list-style-type: none;
         margin: 6px 0 6px 15px;
@@ -117,6 +116,10 @@
     box-shadow: 0 0 8px 10px rgba($darkGray, .3);
     height: 48px;
 
+    .header__menu {
+      margin: 12px 8px;
+    }
+
     .header__logo {
       height: 32px;
       margin-top: -12px;
@@ -142,7 +145,7 @@
     width: 100px;
 
     @media screen and (min-width: 1024px) {
-      height: 85px;
+      height: 65px;
       margin-top: -32px;
       width: 100px;
     }
@@ -180,7 +183,7 @@
     right: -$mobilePadding;
     text-align: center;
     top: 48px;
-    transition: .2s height;
+    transition: .2s all;
 
     &_mobile-visible {
       height: 125px;
