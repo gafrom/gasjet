@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.5'
 # combine @media query rules and keep them at the bottom if final css
 gem 'sprockets-media_query_combiner'
 
+# Nice and useful
+gem 'flutie'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

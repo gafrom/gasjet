@@ -18,7 +18,7 @@ class Admin::ProducersController < AdminController
   def create
     @producer = Producer.new(producer_params)
 
-    if @producer.load_image && @producer.save
+    if @producer.save
       redirect_to [:admin, @producer], notice: I18n.t('.admin.producers.create.success')
     else
       render :new
@@ -28,7 +28,7 @@ class Admin::ProducersController < AdminController
   def update
     @producer.assign_attributes producer_params
 
-    if @producer.load_image && @producer.save
+    if @producer.save
       redirect_to [:admin, @producer], notice: I18n.t('.admin.producers.update.success')
     else
       render :edit
@@ -47,6 +47,6 @@ class Admin::ProducersController < AdminController
     end
 
     def producer_params
-      params.require(:producer).permit(:name, :slug, :image, :web_site, :description)
+      params.require(:producer).permit(:name, :slug, :image_file, :web_site, :description)
     end
 end

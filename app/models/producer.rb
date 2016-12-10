@@ -13,7 +13,7 @@
 #
 
 class Producer < ApplicationRecord
-  include Imagable
+  include Imageable
  
   has_many :products
 

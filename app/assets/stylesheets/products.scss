@@ -1,3 +1,24 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.product_item {
+  display: inline-block;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  a {
+    text-decoration: none;
+  }
+  .product_image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .product_info {
+    :first-child {
+      margin: 0;
+      font-size: 2rem;
+    }
+    :nth-child(2) {
+      color: grey;
+    }
+  }
+}

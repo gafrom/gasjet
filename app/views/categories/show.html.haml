@@ -1,14 +1,15 @@
 .show-category
   .category_block
     = link_to 'Back', :back, class: 'link_back icon-left'
-    %p.category-count= "#{@category.products.count} товаров"
+    %p.category-count= "Товаров в категории: #{@products.count}"
     %h1
       = @category.name
-      %small= @category.description
+      %small= @category.subtitle
 
     .list-render-options_block
       .sort-order= link_to 'Сортировать по релевантности', '#'
 
+  %ul.products_block= render @products
   / %p#notice= notice
 
 

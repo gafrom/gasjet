@@ -1,0 +1,6 @@
+body[class^='devise-'] {
+  text-align: center;
+  br:first-child, br:nth-child(2) {
+    display: none;
+  }  
+}

@@ -1,14 +1,24 @@
-module Imagable
+module Imageable
   ROOT_DIR = Rails.root.join('public', 'uploads', 'images')
+
+  extend ActiveSupport::Concern
+
+  included do
+    attr_accessor :image_file
+
+    before_save :load_image
+  end
 
   def image_url
     "/uploads/images/#{folder}/#{image}"
   end
 
-  def load_image
-    return true if image.nil?
+  private
 
-    uploaded_io = image_before_type_cast
+  def load_image
+    return true if image_file.blank?
+
+    uploaded_io = image_file
     filename = uploaded_io.original_filename
 
     directory = ROOT_DIR.join folder
@@ -21,14 +31,7 @@ module Imagable
     self.image = filename
 
     true
-  # rescue
-  #   msg = 'load error'
-  #   self.errors[:image] << msg
-
-  #   false
   end
-
-  private
 
   def folder
     self.class.name.downcase.pluralize
