@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get 'contacts', to: 'welcome#contacts'
 
-  resources :categories, only: [:show, :index], param: :slug
+  resources :categories, only: :show, param: :slug
   resources :products, only: :show, param: :slug
   resources :producers, only: :show, param: :slug
 

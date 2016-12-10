@@ -1,16 +1,6 @@
 .main-block
   .main-block__side-bar
-    %ul
-      %li
-        .main-block__side-bar__btn= link_to 'Цитрусы', '#'
-      %li
-        .main-block__side-bar__btn= link_to 'Просто трусы', '#'
-      %li
-        .main-block__side-bar__btn= link_to 'Шоколад', '#'
-      %li
-        .main-block__side-bar__btn= link_to 'Памперсы', '#'
-      %li
-        .main-block__side-bar__btn= link_to 'Вёдра', '#'
+    %ul= render @categories
 
   .main-block__message
     %h1 Газджет

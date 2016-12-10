@@ -1,14 +1,21 @@
-%p#notice= notice
+.show-category
+  .category_block
+    = link_to 'Back', :back, class: 'link_back icon-left'
+    %p.category-count= "#{@category.products.count} товаров"
+    %h1
+      = @category.name
+      %small= @category.description
 
-%p
-  Название:
-  = @category.name
+    .list-render-options_block
+      .sort-order= link_to 'Сортировать по релевантности', '#'
 
-= image_tag @category.image_url, alt: "Картинка - #{@category.name}"
+  / %p#notice= notice
 
-%ul
-  Подкатегории:
-  - @category.children.each do |sub_category|
-    %li= link_to sub_category.name, category_path(sub_category.slug)
 
-= link_to 'Back', categories_path
+  / = image_tag @category.image_url, alt: "Картинка - #{@category.name}"
+
+  / %ul
+  /   Подкатегории:
+  /   - @category.children.each do |sub_category|
+  /     %li= link_to sub_category.name, category_path(sub_category.slug)
+
