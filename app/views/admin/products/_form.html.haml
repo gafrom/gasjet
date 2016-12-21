@@ -18,6 +18,10 @@
   = f.text_area :description
 
   %p Картинка
+  - if @product.image
+    = image_tag @product.image_url, class: 'product_image'
+  - else
+    %span Изображение не загружено
   = f.file_field :image_file, accept: 'image/*'
 
   %p Категория

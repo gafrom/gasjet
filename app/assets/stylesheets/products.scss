@@ -1,9 +1,17 @@
 .product_item {
   display: inline-block;
   width: 200px;
-  padding: 20px;
+  margin: 20px;
   text-align: center;
+  background-color: white;
+  &:hover {
+    background-image: linear-gradient(157deg, purple, red);
+  }
   a {
+    padding: 20px;
+    margin: 3px;
+    display: inline-block;
+    background-color: white;
     text-decoration: none;
   }
   .product_image {

@@ -18,8 +18,8 @@
 %p
   Описание:
   = @product.description
-
-= image_tag @product.image_url, alt: "Картинка - #{@product.name}"
+%p Изображение
+= image_tag @product.image_url, alt: "Картинка - #{@product.name}", class: 'product_image'
 %br
 
 = link_to 'Редактировать', edit_admin_product_path(@product)
