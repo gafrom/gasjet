@@ -3,8 +3,8 @@ lock '3.6.1'
 set :application, 'gasjet'
 set :repo_url, 'git@github.com:gafrom/gasjet.git'
 # set :pty, true
-# set :rbenv_ruby, '2.3.1'
-# set :rbenv_map_bins, %w(rake gem bundle ruby rails eye)
+set :rbenv_ruby, '2.3.1'
+set :rbenv_map_bins, %w(rake gem bundle ruby rails eye)
 
 set :ssh_options, forward_agent: true
 set :bundle_jobs, 4
