@@ -64,6 +64,9 @@ GEM
     capistrano-rails (1.2.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -254,6 +257,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-eye
   capistrano-rails
+  capistrano-rbenv
   coffee-rails (~> 4.2)
   devise
   eye

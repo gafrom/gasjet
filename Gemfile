@@ -42,6 +42,7 @@ end
 
 group :development, :staging, :production do
   gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano-eye', require: false
 end
