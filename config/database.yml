@@ -16,4 +16,5 @@ test:
 
 production:
   <<: *default
-  database: db/gasjet
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
