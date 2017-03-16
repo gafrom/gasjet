@@ -14,19 +14,58 @@
     background-color: white;
     text-decoration: none;
   }
-  .product_image {
+  &__image {
     img {
       width: 100%;
     }
   }
 
-  .product_info {
+  &__info {
     :first-child {
       margin: 0;
       font-size: 2rem;
     }
     :nth-child(2) {
       color: grey;
+    }
+  }
+}
+
+.products-show {
+  .container {
+    background-color: whitesmoke;
+  }
+  .product {
+    padding: 0 40px;
+
+    &__inner {
+      padding: 20px 0;
+    }
+
+    &_image {
+      width: 100%;
+      background-color: white;
+    }
+
+    &_info {
+      &__label {
+        font-size: 12px;
+        color: grey;
+      }
+      &__item {
+        border-bottom: 1px solid lightgrey;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+
+        &_title {
+          font-size: 30px;
+          font-weight: 600;
+        }
+        &_category {
+          font-size: 20px;
+        }
+      }
+
     }
   }
 }
