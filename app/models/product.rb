@@ -32,4 +32,8 @@ class Product < ApplicationRecord
   belongs_to :category
 
   validates :name, :slug, presence: true
+
+  def to_param
+    slug
+  end
 end
