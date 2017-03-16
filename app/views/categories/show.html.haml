@@ -1,6 +1,6 @@
 .show-category
   .category_block
-    = link_to 'Back', :back, class: 'link_back icon-left'
+    = link_to 'Back', root_path, class: 'link link_back icon-left'
     %p.category-count= "Товаров в категории: #{@products.count}"
     %h1
       = @category.name
@@ -10,13 +10,3 @@
       .sort-order= link_to 'Сортировать по релевантности', '#'
 
   %ul.products_block= render @products
-  / %p#notice= notice
-
-
-  / = image_tag @category.image_url, alt: "Картинка - #{@category.name}"
-
-  / %ul
-  /   Подкатегории:
-  /   - @category.children.each do |sub_category|
-  /     %li= link_to sub_category.name, category_path(sub_category.slug)
-

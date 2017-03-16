@@ -1,15 +1,16 @@
-%p= @product.name
-%p
-  Категория:
-  = @product.category.name
-%p
-  Производитель
-  = @product.producer.name
-%p
-  Вес:
-  = @product.weight
-%p
-  Описание:
-  = @product.description
-
-= image_tag @product.image_url, alt: "Картинка - #{@product.name}"
+.product.container
+  = link_to 'Back', :back, class: 'link link_back icon-left'
+  .product__inner.twelve.columns
+    .two-thirds.column
+      = image_tag @product.image_url, alt: "Картинка - #{@product.name}", class: 'product_image'
+    .one-third.column
+      .product_info
+        %p.product_info__item.product_info__item_title= @product.name
+        
+        %label.product_info__label Производитель
+        %p.product_info__item.product_info__item_manufacturer= @product.producer.name
+        
+        %label.product_info__label Вес
+        %p.product_info__item.product_info__item_weight= @product.weight
+        
+        %p.product_info__item.product_info__item_description= @product.description
