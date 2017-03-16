@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :admin, path: 'fiddle' do
     resources :categories
-    resources :products
+    resources :products, param: :slug
     resources :producers
     root 'dashboard#index'
   end

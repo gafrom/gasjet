@@ -6,11 +6,14 @@
     .one-third.column
       .product_info
         %p.product_info__item.product_info__item_title= @product.name
-        
-        %label.product_info__label Производитель
-        %p.product_info__item.product_info__item_manufacturer= @product.producer.name
-        
-        %label.product_info__label Вес
-        %p.product_info__item.product_info__item_weight= @product.weight
-        
-        %p.product_info__item.product_info__item_description= @product.description
+
+        - if @product.producer&.name.present?
+          %label.product_info__label Производитель
+          %p.product_info__item.product_info__item_manufacturer= @product.producer.name
+
+        - if @product.weight.present?
+          %label.product_info__label Вес
+          %p.product_info__item.product_info__item_weight= @product.weight
+
+        - if @product.description.present?
+          %p.product_info__item.product_info__item_description= @product.description
