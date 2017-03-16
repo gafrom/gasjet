@@ -1,3 +1,12 @@
-img.image__small {
-  height: 50px;
+[class^="admin-"] {
+
+  img.image__small {
+    height: 50px;
+  }
+
+  img.product_image {
+    height: 70px;
+    display: block;
+    padding: 1em 0;
+  }
 }

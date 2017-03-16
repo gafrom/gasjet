@@ -9,8 +9,12 @@ gem 'cancancan'
 # Database stuff
 gem 'pg'
 gem 'annotate'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+gem 'eye', require: false
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -35,6 +39,13 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :development, :staging, :production do
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-eye', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

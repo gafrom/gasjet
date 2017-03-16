@@ -1,23 +1,7 @@
 %li.product_item
   = link_to product do
-    .product_image
+    .product_item__image
       = image_tag product.image_url
-    .product_info
+    .product_item__info
       %p= product.name
       %p= product.producer.name
-
-
-/ %p= @product.name
-/ %p
-/   Категория:
-/   = @product.category.name
-/ %p
-/   Производитель
-/   = @product.producer.name
-/ %p
-/   Вес:
-/   = @product.weight
-/ %p
-/   Описание:
-/   = @product.description
-
