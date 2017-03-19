@@ -1,9 +1,9 @@
-= form_for([:admin, @category], html: { multipart: true }) do |f|
-  - if @category.errors.any?
+= form_for([:admin, @resource], html: { multipart: true }) do |f|
+  - if @resource.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+      %h2= "#{pluralize(@resource.errors.count, "error")} prohibited this category from being saved:"
       %ul
-        - @category.errors.full_messages.each do |msg|
+        - @resource.errors.full_messages.each do |msg|
           %li= msg
   %p Название
   = f.text_field :name
@@ -13,8 +13,15 @@
   = f.text_field :slug
   %p Категория-родитель
   = f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Не выбирай здесь ничего если хочешь создать топ категорию'
-  %p Картинка
-  = f.file_field :image_file, accept: 'image/*'
+
+  %p Изображение
+  = f.fields_for(:images, include_id: false, class: 'resource__form__images') do |images_form|
+    .resource__form__images__item.trashable
+      - if images_form.object.filename
+        = image_tag images_form.object.url, class: 'resource__form__images__item__image'
+        = link_to '', admin_image_url(images_form.object.id), method: :delete, class: 'icon icon-trash'
+      - else
+        = images_form.file_field :file, accept: 'image/*'
 
   .actions
     = f.submit 'Save'

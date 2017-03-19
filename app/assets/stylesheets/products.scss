@@ -45,6 +45,10 @@
     &_image {
       width: 100%;
       background-color: white;
+
+      &_preview {
+        width: 140px;
+      }
     }
 
     &_info {

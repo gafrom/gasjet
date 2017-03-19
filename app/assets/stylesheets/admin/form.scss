@@ -1,6 +1,37 @@
-form {
-  margin-top: 2em;
-  p {
-    margin-bottom: 0px;
+[class^='admin-'] {
+  form {
+    margin-top: 2em;
+    p {
+      margin-bottom: 0px;
+    }
+  }
+  
+  .resource {
+    &__form {
+      &__images {
+        &__item {
+          margin-bottom: 20px;
+
+          &.trashable {
+            .icon-trash { 
+              color: tomato;
+              opacity: 0.3;
+            }
+            
+            &:hover {
+              .icon-trash { opacity: 1; }
+            }
+          }
+
+
+          &__image {
+            width: 100px;
+            max-height: 200px;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
   }
 }
+

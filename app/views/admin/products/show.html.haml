@@ -1,27 +1,37 @@
-%p#notice= notice
+.resource
+  %p#notice= notice
 
-%p
-  Название:
-  = @product.name
-%p
-  Cсылка:
-  = @product.slug
-%p
-  Категория:
-  = @product.category.name
-%p
-  Производитель
-  = @product.producer.name
-%p
-  Вес:
-  = @product.weight
-%p
-  Описание:
-  = @product.description
-%p Изображение
-= image_tag @product.image_url, alt: "Картинка - #{@product.name}", class: 'product_image'
-%br
+  %p
+    Название:
+    = @resource.name
+  %p
+    Cсылка:
+    = @resource.slug
+  %p
+    Категория:
+    = @resource.category.name
+  %p
+    Производитель
+    = @resource.producer.name
+  %p
+    Вес:
+    = @resource.weight
+  %p
+    Описание:
+    = @resource.description
 
-= link_to 'Редактировать', edit_admin_product_path(@product)
-\|
-= link_to 'Ко списку товаров', admin_products_path
+  %p
+    Изображния
+    .resource__images
+    - if @resource.images.any?
+      - @resource.images.each do |image|
+        .resource__images__item
+        = image_tag image.url, class: 'resource__images__item__image'
+    - else
+      %p Изображения не загружены
+
+  %br
+
+  = link_to 'Редактировать', edit_admin_product_path(@resource)
+  \|
+  = link_to 'Ко списку товаров', admin_products_path

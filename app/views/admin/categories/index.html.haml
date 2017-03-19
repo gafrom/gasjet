@@ -10,11 +10,14 @@
       %th
 
   %tbody
-    - @categories.each do |category|
+    - @resources.each do |category|
       %tr
         %td
-          = link_to [:admin, category] do 
-            = image_tag category.image_url, alt: "Нет картинки для #{category.name}", class: 'image__small'
+          = link_to [:admin, category] do
+            - if category.image
+              = image_tag category.image.url, class: 'image__small'
+            - else
+              = 'Изображения нет'
         %td= category.name
         %td= category.slug
         %td= link_to 'Редактировать', edit_admin_category_path(category)

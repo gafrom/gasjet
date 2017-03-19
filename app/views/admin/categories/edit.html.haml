@@ -1,7 +1,8 @@
-%h1 Редактирование категории
+.resource
+  %h1 Редактирование категории
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Показать', @category
-\|
-= link_to 'Назад', admin_categories_path
+  = link_to 'Показать', [:admin, @resource]
+  \|
+  = link_to 'Назад', admin_categories_path
