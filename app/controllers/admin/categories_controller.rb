@@ -1,61 +1,60 @@
 class Admin::CategoriesController < AdminController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource, except: :index
+  before_action :build_image, only: [:new, :edit]
 
-  # GET /categories
   def index
-    @categories = Category.all
+    @resources = base.all
   end
 
-  # GET /categories/1
   def show
   end
 
-  # GET /categories/new
   def new
-    @category = Category.new
   end
 
-  # GET /categories/1/edit
   def edit
   end
 
-  # POST /categories
   def create
-    @category = Category.new(category_params)
+    @resource.assign_attributes resource_params
 
-    if @category.save
-      redirect_to admin_category_path(@category), notice: I18n.t('.admin.categories.create.success')
+    if @resource.save
+      redirect_to admin_category_path(@resource), notice: I18n.t('.admin.categories.create.success')
     else
       render :new
     end
   end
 
-  # PATCH/PUT /categories/1
   def update
-    @category.assign_attributes category_params
+    @resource.assign_attributes resource_params
 
-    if @category.save
-      redirect_to admin_category_path(@category), notice: I18n.t('admin.categories.create.success')
+    if @resource.save
+      redirect_to admin_category_path(@resource), notice: I18n.t('admin.categories.update.success')
     else
       render :edit
     end
   end
 
-  # DELETE /categories/1
   def destroy
-    @category.destroy
+    @resource.destroy
 
     redirect_to admin_categories_path, notice: 'Category was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
+    def build_image
+      @resource.images.any? || @resource.images.build
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def category_params
-      params.require(:category).permit(:name, :slug, :category_id, :image_file, :subtitle)
+    def set_resource
+      @resource ||= params[:id] ? base.find(params[:id]) : base.new
+    end
+
+    def resource_params
+      params.require(:category).permit(:name, :slug, :category_id, :subtitle, images_attributes: [:file])
+    end
+
+    def base
+      ::Category
     end
 end

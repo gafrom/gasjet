@@ -1,39 +1,21 @@
 module Imageable
-  ROOT_DIR = Rails.root.join('public', 'uploads', 'images')
-
   extend ActiveSupport::Concern
 
   included do
-    attr_accessor :image_file
+    has_many :images, dependent: :destroy, as: :imageable
 
-    before_save :load_image
+    accepts_nested_attributes_for :images, reject_if: :image_has_no_file
   end
 
-  def image_url
-    "/uploads/images/#{folder}/#{image}"
+  def image
+    images.first
   end
 
   private
 
-  def load_image
-    return true if image_file.blank?
-
-    uploaded_io = image_file
-    filename = uploaded_io.original_filename
-
-    directory = ROOT_DIR.join folder
-    FileUtils.mkdir_p(directory) unless File.directory?(directory)
-
-    File.open(directory.join(filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
-
-    self.image = filename
-
-    true
+  def image_has_no_file(attributes)
+    attributes['file'].blank?
   end
 
-  def folder
-    self.class.name.downcase.pluralize
-  end
+  # base.select { |b| b.image_before_type_cast }.each { |r| r.images.create(filename: image_before_type_cast, original_filename: image_before_type_cast) }
 end

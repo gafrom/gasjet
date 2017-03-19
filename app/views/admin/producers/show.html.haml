@@ -1,21 +1,31 @@
-%p#notice= notice
+.resource
+  %p#notice= notice
 
-%p
-  Название:
-  = @producer.name
-%p
-  Cсылка:
-  = @producer.slug
-%p
-  Сайт:
-  = @producer.web_site
-%p
-  Описание:
-  = @producer.description
+  %p
+    Название:
+    = @resource.name
+  %p
+    Cсылка:
+    = @resource.slug
+  %p
+    Сайт:
+    = @resource.web_site
+  %p
+    Описание:
+    = @resource.description
 
-= image_tag @producer.image_url, alt: "Картинка - #{@producer.name}"
-%br
+  %p
+    Изображние
+    .resource__images
+    - if @resource.images.any?
+      .resource__images__item
+      = image_tag @resource.image.url, class: 'resource__images__item__image'
+    - else
+      %p Изображение не загружено
 
-= link_to 'Edit', edit_admin_producer_path(@producer)
-\|
-= link_to 'Back', admin_producers_path
+  %br
+  %br
+
+  = link_to 'Edit', edit_admin_producer_path(@resource)
+  \|
+  = link_to 'Back', admin_producers_path

@@ -1,9 +1,9 @@
-= form_for([:admin, @product], html: { multipart: true }) do |f|
-  - if @product.errors.any?
+= form_for([:admin, @resource], html: { multipart: true }) do |f|
+  - if @resource.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this admin_product from being saved:"
+      %h2= "#{pluralize(@resource.errors.count, "error")} prohibited this admin_product from being saved:"
       %ul
-        - @product.errors.full_messages.each do |msg|
+        - @resource.errors.full_messages.each do |msg|
           %li= msg
   %p Название товара
   = f.text_field :name
@@ -17,12 +17,15 @@
   %p Описание
   = f.text_area :description
 
-  %p Картинка
-  - if @product.image
-    = image_tag @product.image_url, class: 'product_image'
-  - else
-    %span Изображение не загружено
-  = f.file_field :image_file, accept: 'image/*'
+  %p Изображения
+  = f.fields_for(:images, include_id: false, class: 'resource__form__images') do |images_form|
+    .resource__form__images__item.trashable
+      - if images_form.object.filename
+        = image_tag images_form.object.url, class: 'resource__form__images__item__image'
+        = link_to '', admin_image_url(images_form.object.id), method: :delete, class: 'icon icon-trash'
+      - else
+        Добавить изображение
+        = images_form.file_field :file, accept: 'image/*'
 
   %p Категория
   = f.collection_select :category_id, Category.all, :id, :name

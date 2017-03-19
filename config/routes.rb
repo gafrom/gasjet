@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :products, param: :slug
     resources :producers
+    resources :images, only: :destroy
     root 'dashboard#index'
   end
 
