@@ -12,11 +12,14 @@
       %th
 
   %tbody
-    - @producers.each do |producer|
+    - @resources.each do |producer|
       %tr
         %td
-          = link_to [:admin, producer] do 
-            = image_tag producer.image_url, alt: "Нет картинки для #{producer.name}", class: 'image__small'
+          = link_to [:admin, producer] do
+            - if producer.image
+              = image_tag producer.image.url, class: 'image__small'
+            - else
+              = 'Изображения нет'
         %td= producer.name
         %td= producer.slug
         %td= producer.web_site

@@ -1,21 +1,29 @@
-%p#notice= notice
+.resource
+  %p#notice= notice
 
-%p
-  Название:
-  = @category.name
-%p
-  Cсылка:
-  = @category.slug
+  %p
+    Название:
+    = @resource.name
+  %p
+    Cсылка:
+    = @resource.slug
 
-= image_tag @category.image_url, alt: "Картинка - #{@category.name}"
-%br
+  %p
+    Изображние
+    .resource__images
+    - if @resource.images.any?
+      .resource__images__item
+      = image_tag @resource.image.url, class: 'resource__images__item__image'
+    - else
+      %p Изображение не загружено
 
-- if @category.children.any?
-  %ul
-    Подкатегории:
-    - @category.children.each do |sub_category|
-      %li= link_to sub_category.name, admin_category_path(sub_category)
 
-= link_to 'Редактировать', edit_admin_category_path(@category)
-\|
-= link_to 'Назад', admin_categories_path
+  - if @resource.children.any?
+    %ul
+      Подкатегории:
+      - @resource.children.each do |sub_category|
+        %li= link_to sub_category.name, admin_category_path(sub_category)
+
+  = link_to 'Редактировать', edit_admin_category_path(@resource)
+  \|
+  = link_to 'Назад', admin_categories_path

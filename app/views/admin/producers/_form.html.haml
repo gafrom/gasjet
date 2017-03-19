@@ -1,9 +1,9 @@
-= form_for([:admin, @producer], html: { multipart: true }) do |f|
-  - if @producer.errors.any?
+= form_for([:admin, @resource], html: { multipart: true }) do |f|
+  - if @resource.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@producer.errors.count, "error")} prohibited this producer from being saved:"
+      %h2= "#{pluralize(@resource.errors.count, "error")} prohibited this producer from being saved:"
       %ul
-        - @producer.errors.full_messages.each do |msg|
+        - @resource.errors.full_messages.each do |msg|
           %li= msg
   %p Название производителя
   = f.text_field :name
@@ -17,8 +17,14 @@
   %p Описание
   = f.text_area :description
 
-  %p Картинка
-  = f.file_field :image_file, accept: 'image/*'
+  %p Изображение
+  = f.fields_for(:images, include_id: false, class: 'resource__form__images') do |images_form|
+    .resource__form__images__item.trashable
+      - if images_form.object.filename
+        = image_tag images_form.object.url, class: 'resource__form__images__item__image'
+        = link_to '', admin_image_url(images_form.object.id), method: :delete, class: 'icon icon-trash'
+      - else
+        = images_form.file_field :file, accept: 'image/*'
 
   .actions
     = f.submit 'Save'
