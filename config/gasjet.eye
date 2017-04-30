@@ -17,7 +17,7 @@ Eye.application 'gasjet' do
     pid_file 'tmp/pids/puma.pid'
     stdall "#{ROOT_PATH}/log/puma.log"
 
-    start_command "bundle exec puma --port 9830 --environment production"
+    start_command "bundle exec puma -C config/puma.rb"
     stop_signals [:QUIT, 5.seconds, :KILL]
     restart_command 'kill -QUIT {PID}'
 
