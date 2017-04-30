@@ -1,0 +1,41 @@
+%footer.footer{id: 'footer', data: { "turbolinks-permanent": true } }
+  .footer__inner
+    %ul.footer__col.footer__col_first
+      %li= link_to 'Категории товаров', '#'
+      %li= link_to 'Контакты', contacts_path
+      %li= link_to 'Товары по акции', '#'
+      %li.mobile-only= link_to 'Контакты', '#'
+
+    .footer__col.footer__col_second
+      %h5.footer-col__title Адрес
+      %a.footer-col__magic.icon.icon-location{ href: 'https://yandex.ru/maps/65/novosibirsk/?source=serp_navig&ncrnd=5749&ll=82.998710%2C55.052028&z=18&mode=whatshere&whatshere%5Bpoint%5D=82.999000%2C55.052087&whatshere%5Bzoom%5D=18&l=sat%2Cskl', target: :_blank }
+        %span.address__text
+          %span.address__city Главный офис и склад
+          %span.address__street г. Новосибирск, улица Почтовый лог, дом 1
+      %a.footer-col__magic.icon.icon-location{ href: 'https://yandex.ru/maps/?source=serp_navig&ncrnd=5749&ll=82.945876%2C54.919818&z=16&mode=whatshere&whatshere%5Bpoint%5D=82.945962%2C54.920856&whatshere%5Bzoom%5D=16', target: :_blank }
+        %span.address__text
+          %span.address__city Склад на левом берегу
+          %span.address__street НСО, Советское шоссе, п. Элитное, ул. Липовая 4А
+
+    .footer__col.footer__col_third
+      %h5.footer-col__title Контакты
+      %p.footer-col__p
+        %span= link_to 'michael@gasjet.ru', 'mailto:michael@gasjet.ru'
+        %span
+          Тел.:
+          %a.footer__tel-link{:href => "tel:+79139162055"} +7 (913) 916 20 55
+      %p.footer-col__p
+        %span= link_to 'info@gasjet.ru', 'mailto:info@gasjet.ru'
+        %span
+          Тел.:
+          %a.footer__tel-link{:href => "tel:+73832039661"} +7 (383) 203 96 61
+      %p.footer-col__p
+        %span= link_to 'sales@gasjet.ru', 'mailto:sales@gasjet.ru'
+        %span
+          Тел.:
+          %a.footer__tel-link{:href => "tel:+79831280265"} +7 (983) 128 02 65
+
+  %ul.social-icons.social-icons_footer
+    %li= link_to '', 'https://github.com/gafrom/fiddle', class: 'icon-github-circled'
+
+  %p.footer__copyrights © 2017 ООО "Газджет"
