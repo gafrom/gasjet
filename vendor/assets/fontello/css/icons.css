@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?93112690');
-  src: url('../font/icons.eot?93112690#iefix') format('embedded-opentype'),
-       url('../font/icons.woff2?93112690') format('woff2'),
-       url('../font/icons.woff?93112690') format('woff'),
-       url('../font/icons.ttf?93112690') format('truetype'),
-       url('../font/icons.svg?93112690#icons') format('svg');
+  src: url('../font/icons.eot?20749671');
+  src: url('../font/icons.eot?20749671#iefix') format('embedded-opentype'),
+       url('../font/icons.woff2?20749671') format('woff2'),
+       url('../font/icons.woff?20749671') format('woff'),
+       url('../font/icons.ttf?20749671') format('truetype'),
+       url('../font/icons.svg?20749671#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icons';
-    src: url('../font/icons.svg?93112690#icons') format('svg');
+    src: url('../font/icons.svg?20749671#icons') format('svg');
   }
 }
 */
@@ -71,6 +71,7 @@
 .icon-left:before { content: '\e80d'; } /* '' */
 .icon-up:before { content: '\e80e'; } /* '' */
 .icon-down:before { content: '\e80f'; } /* '' */
+.icon-location:before { content: '\e810'; } /* '' */
 .icon-down-open:before { content: '\f004'; } /* '' */
 .icon-up-open:before { content: '\f005'; } /* '' */
 .icon-right-open:before { content: '\f006'; } /* '' */
@@ -79,8 +80,11 @@
 .icon-tasks:before { content: '\f0ae'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-rocket:before { content: '\f135'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */
 .icon-birthday:before { content: '\f1fd'; } /* '' */
 .icon-hourglass-o:before { content: '\f250'; } /* '' */
 .icon-hourglass-half:before { content: '\f252'; } /* '' */
 .icon-hourglass-empty:before { content: '\f253'; } /* '' */
 .icon-hourglass:before { content: '\f254'; } /* '' */
+.icon-instagram-filled:before { content: '\f31f'; } /* '' */
+.icon-instagram-1:before { content: '\f32d'; } /* '' */
