@@ -8,9 +8,10 @@
   transition: .2s all;
   width: 100%;
   z-index: 250;
+  height: 55px;
 
   .header__menu {
-    margin: 30px 8px;
+    margin: 0;
     &-content {
       float: left;
       margin: 0 20px;
@@ -60,6 +61,7 @@
       float: left;
       border-left: 1px solid lightgrey;
       margin: 0 20px 0 0;
+
       ul {
         list-style-type: none;
         margin: 6px 0 6px 15px;
@@ -113,16 +115,10 @@
   }
 
   &_compact {
-    box-shadow: 0 0 8px 10px rgba($darkGray, .3);
-    height: 48px;
-
-    .header__menu {
-      margin: 12px 8px;
-    }
+    box-shadow: 0 0 8px 6px rgba($darkGray, .3);
 
     .header__logo {
       height: 32px;
-      margin-top: -12px;
       width: 100px;
     }
   }
@@ -137,7 +133,7 @@
   &__logo {
     color: transparent;
     height: 32px;
-    margin: -12px 0 0 0;
+    margin: -16px 0 0 0;
     position: absolute;
     text-indent: -9999px;
     top: 50%;
@@ -147,7 +143,7 @@
     @media screen and (min-width: 1024px) {
       height: 65px;
       margin-top: -32px;
-      width: 100px;
+      width: 170px;
     }
 
     @media screen and (min-width: 1024px) and (max-width: 1200px) {
@@ -178,26 +174,46 @@
     left: -$mobilePadding;
     margin: 0;
     overflow: hidden;
-    padding: 0 0 10px 0;
+    padding: 0;
     position: absolute;
     right: -$mobilePadding;
     text-align: center;
-    top: 48px;
+    top: 55px;
     transition: .2s all;
 
     &_mobile-visible {
-      height: 125px;
-      box-shadow: 0 2px 5px grey;
+      height: 145px;
+      box-shadow: 0 12px 6px -4px rgba($darkGray, .3);
+
+      .header__menu-content_auth, .header__menu-shorthands {
+        display: none;
+      }
+
+      .header__menu-content {
+        float: none;
+
+        .header__menu-content_menu-inner ul li {
+          display: block;
+          text-align: center;
+          padding-left: 0;
+          margin-top: 2px;
+
+          a:hover {
+            color: #b62c45;
+          }
+        }
+      }
     }
 
     @media screen and (min-width: 1024px) {
+      top: 50%;
+      transform: translateY(-50%);
       background-color: transparent;
       display: block;
       height: auto;
       left: auto;
       padding-bottom: 0;
       right: 0;
-      top: auto;
     }
   }
 
@@ -209,17 +225,18 @@
     box-shadow: none;
     cursor: pointer;
     display: block;
-    font-size: 0;
-    height: 16px;
+    width: 40px;
+    height: 34px;
+    font-size: 34px;
+    line-height: 1;
     margin: 0;
-    margin-top: -8px;
     overflow: hidden;
     padding: 0;
     position: absolute;
     right: 0;
     top: 50%;
+    transform: translateY(-50%);
     transition: background .3s;
-    width: 16px;
 
     &:focus {
       outline: none;

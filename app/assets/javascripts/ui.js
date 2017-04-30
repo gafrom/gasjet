@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   "use strict";
   $(".header__hamburger").on("click", function(){
     if(!$(this).hasClass("activated")){
