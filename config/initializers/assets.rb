@@ -14,3 +14,4 @@ Rails.application.config.assets.precompile += %w( errors.css )
 # Fontello
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|woff2|ttf)$/
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'fontello', 'font')
+Rails.application.config.assets.paths << Rails.root.join('vendor', 'OwlCarousel2', 'dist')

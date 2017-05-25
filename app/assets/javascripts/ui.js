@@ -26,4 +26,11 @@ $(document).on('turbolinks:load', function() {
       $(".header__hamburger").removeClass('activated')
     }
   });
+
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      items: 1,
+      nav: true
+    });
+  });
 });
