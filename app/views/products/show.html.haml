@@ -1,12 +1,12 @@
 .product.container
   = link_to 'Back', :back, class: 'link link_back icon-left'
   .product__inner.twelve.columns
-    .two-thirds.column
+    .one-half.column
       .owl-carousel.owl-theme
         - @product.images.each do |image|
           %div= image_tag image.url, alt: "#{@product.name} - #{image.original_filename}", class: 'product_image_preview'
 
-    .one-third.column
+    .one-half.column
       .product_info
         %p.product_info__item.product_info__item_title= @product.name
 
