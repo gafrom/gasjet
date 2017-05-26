@@ -2,9 +2,12 @@
   = link_to 'Back', :back, class: 'link link_back icon-left'
   .product__inner.twelve.columns
     .one-half.column
-      .owl-carousel.owl-theme
+      #owl-main.owl-carousel.owl-theme
         - @product.images.each do |image|
           %div= image_tag image.url, alt: "#{@product.name} - #{image.original_filename}", class: 'product_image_preview'
+      #owl-bar
+        - @product.images.each_with_index do |image, i|
+          %div{class: ('active' if i == 0)}= image_tag image.url
 
     .one-half.column
       .product_info

@@ -28,9 +28,37 @@ $(document).on('turbolinks:load', function() {
   });
 
   $(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
+    var mainOwl = $("#owl-main");
+    var bars;
+    var dots;
+    var updateBarClasses;
+
+    mainOwl.owlCarousel({
       items: 1,
       nav: true
     });
+
+    bars = $("#owl-bar>div");
+    dots = mainOwl.find('.owl-dots>div');
+
+    updateBarClasses = function(bar) {
+      bars.select('.active').removeClass('active');
+      bar.addClass('active');
+    }
+
+    bars.on('click', function() {
+      var bar = $(this);
+      var num = bars.index(bar);
+      dots.eq(num).click();
+
+      updateBarClasses(bar);
+    });
+
+    dots.on('click', function() {
+      var num = dots.index($(this));
+
+      updateBarClasses(bars.eq(num));
+    });
+
   });
 });
