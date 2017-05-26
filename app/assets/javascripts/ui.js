@@ -8,8 +8,6 @@ $(document).on('turbolinks:load', function() {
       $(this).removeClass("activated");
       $(".header__menu").removeClass('header__menu_mobile-visible');
     }
-
-
   });
 
   $(window).scroll(function(){
