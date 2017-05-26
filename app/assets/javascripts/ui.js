@@ -36,6 +36,8 @@ $(document).on('turbolinks:load', function() {
     mainOwl.owlCarousel({
       items: 1,
       nav: true
+    }).on('changed.owl.carousel', function(event) {
+      updateBarClasses(bars.eq(event.item.index));
     });
 
     bars = $("#owl-bar>div");
@@ -53,12 +55,5 @@ $(document).on('turbolinks:load', function() {
 
       updateBarClasses(bar);
     });
-
-    dots.on('click', function() {
-      var num = dots.index($(this));
-
-      updateBarClasses(bars.eq(num));
-    });
-
   });
 });
