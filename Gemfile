@@ -29,6 +29,7 @@ gem 'sprockets-media_query_combiner'
 
 # Nice and useful
 gem 'flutie'
+gem 'spreadsheet'
 
 group :development, :test do
   gem 'byebug', platform: :mri

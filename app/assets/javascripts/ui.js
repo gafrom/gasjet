@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function() {
-  "use strict";
+  'use strict';
+
   $(".header__hamburger").on("click", function(){
     if(!$(this).hasClass("activated")){
       $(this).addClass("activated");
@@ -8,8 +9,6 @@ $(document).on('turbolinks:load', function() {
       $(this).removeClass("activated");
       $(".header__menu").removeClass('header__menu_mobile-visible');
     }
-
-
   });
 
   $(window).scroll(function(){
