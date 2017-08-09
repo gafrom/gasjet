@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show, param: :slug
   resources :products, only: :show, param: :slug
   resources :producers, only: :show, param: :slug
+  get '/price-list', to: 'price_lists#show', as: :price_list
 
   devise_for :users
 end

@@ -1,0 +1,24 @@
+ru:
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      default: '%-d %B, %Y'
+      with_weekday: '%a %d.%m.%y'
+
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+
+  time:
+    formats:
+      default: '%-d %B %Y, %-H:%M'
+      date: '%-d %B, %Y'
+      short: '%-d %B, %Y'
+      time_only: '%-H:%M'
+      filename: '%-d %B %Y'
