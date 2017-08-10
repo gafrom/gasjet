@@ -34,8 +34,17 @@ class Product < ApplicationRecord
   belongs_to :category
 
   validates :name, :slug, presence: true
+  validates :stock_number, presence: true, uniqueness: true
+
+  before_validation :assign_stock_number, unless: :stock_number
 
   def to_param
     slug
+  end
+
+  private
+
+  def assign_stock_number
+    self.stock_number = id
   end
 end

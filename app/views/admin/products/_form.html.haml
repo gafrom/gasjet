@@ -8,8 +8,15 @@
   %p Название товара
   = f.text_field :name
 
+  - if %(update edit).include? action_name
+    %p Артикул
+    = f.text_field :stock_number
+
   %p Ссылка в адресе (slug)
   = f.text_field :slug
+
+  %p Цена
+  = f.text_field :price
 
   %p Вес
   = f.text_field :weight
