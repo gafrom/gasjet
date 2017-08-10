@@ -13,6 +13,8 @@
 #  producer_id  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  price        :float
+#  stock_number :integer
 #
 # Indexes
 #
@@ -32,8 +34,21 @@ class Product < ApplicationRecord
   belongs_to :category
 
   validates :name, :slug, presence: true
+  validates :stock_number, presence: true, uniqueness: true
+
+  before_validation :assign_stock_number, unless: :stock_number
 
   def to_param
     slug
+  end
+
+  def pretty_stock_number
+    stock_number.to_s.rjust(4, '0')
+  end
+
+  private
+
+  def assign_stock_number
+    self.stock_number = id
   end
 end

@@ -30,6 +30,11 @@
     :nth-child(2) {
       color: grey;
     }
+
+    .price {
+      color: green;
+      font-weight: 600;
+    }
   }
 }
 
@@ -69,6 +74,10 @@
         }
         &_category {
           font-size: 20px;
+        }
+        &_price {
+          color: green;
+          font-weight: 600;
         }
       }
 

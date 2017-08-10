@@ -13,6 +13,13 @@
       .product_info
         %p.product_info__item.product_info__item_title= @product.name
 
+        %label.product_info__label Артикул
+        %p.product_info__item= @product.pretty_stock_number
+
+        - if @product.price.present?
+          %label.product_info__label Цена
+          %p.product_info__item.product_info__item_price= number_to_currency @product.price
+
         - if @product.producer&.name.present?
           %label.product_info__label Производитель
           %p.product_info__item.product_info__item_manufacturer= @product.producer.name

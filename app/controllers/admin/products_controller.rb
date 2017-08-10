@@ -54,7 +54,7 @@ class Admin::ProductsController < AdminController
 
     def resource_params
       params.require(:product)
-            .permit(:name, :slug, :description, :weight, :product_type,
+            .permit(:name, :slug, :description, :weight, :product_type, :price, :stock_number,
                     :category_id, :producer_id, images_attributes: [:file])
     end
 

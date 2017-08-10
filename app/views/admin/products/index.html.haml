@@ -4,7 +4,9 @@
   %thead
     %tr
       %th= t '.image'
+      %th= t '.stock_number'
       %th= t '.name'
+      %th= t '.price'
       %th= t '.slug'
       %th= t '.description'
       %th= t '.product_type'
@@ -23,7 +25,9 @@
               = image_tag product.image.url, class: 'image__small'
             - else
               = 'Изображения нет'
+        %td= product.pretty_stock_number
         %td= product.name
+        %td= number_to_currency product.price
         %td= product.slug
         %td= product.description
         %td= product.product_type
