@@ -6,7 +6,7 @@ class PriceList
   def initialize
     @book = Spreadsheet::Workbook.new
     @file_contents = StringIO.new
-    @filename = "Gasjet прайс лист от #{I18n.l Time.zone.now, format: :filename}.xls"
+    @filename = "ООО Газджет прайс лист от #{I18n.l Time.zone.now, format: :filename}.xls"
 
     fill_in
     format_it
@@ -17,7 +17,7 @@ class PriceList
 
   def fill_in
     i = 0
-    @sheet = @book.create_worksheet name: 'Gasjet прайс лист'
+    @sheet = @book.create_worksheet name: 'ООО Газджет прайс лист'
     @sheet.row(i).concat %w{Артикул Наименование Цена Категория Производитель Описание}
 
     Product.all.order(:category_id, :producer_id).each do |product|
@@ -30,7 +30,7 @@ class PriceList
                product.description
     end
 
-    @sheet.row(i += 4).push 'Контактная информация'
+    @sheet.row(i += 4).push 'Контактная информация ООО "Газджет"'
     @sheet.row(i).default_format = Spreadsheet::Format.new weight: :bold
     @sheet.row(i += 1).push 'Адрес:', 'г. Новосибирск, ул. Никитина 112а, корпус 1'
     @sheet.row(i += 1).push 'Телефон:', '+7 (913) 916 20 55'
