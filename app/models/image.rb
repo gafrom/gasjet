@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: images
+#
+#  id                :integer          not null, primary key
+#  filename          :string
+#  original_filename :string
+#  imageable_type    :string
+#  imageable_id      :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class Image < ApplicationRecord
   DATA_DIR = ENV['RAILS_DATA_DIR'] || Rails.root.join('public')
   ROOT_DIR = Pathname.new(DATA_DIR).join('uploads', 'images')

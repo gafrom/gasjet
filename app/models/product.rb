@@ -13,6 +13,8 @@
 #  producer_id  :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  price        :float
+#  stock_number :integer
 #
 # Indexes
 #
