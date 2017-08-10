@@ -13,6 +13,12 @@ ru:
         slug: Ссылка (slug)
         description: Описание
         image: Картинка
+        price: Цена
+        stock_number: Артикул
+        product_type: Тип товара
+        weight: Вес
+        category: Категория
+        producer: Производитель
       create:
         success: Товар был успешно создан
 
