@@ -4,4 +4,6 @@
       = image_tag product.image.url
     .product_item__info
       %p= product.name
+      - if product.price
+        %p.price= number_to_currency product.price
       %p= product.producer.name

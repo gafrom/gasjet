@@ -25,7 +25,7 @@
               = image_tag product.image.url, class: 'image__small'
             - else
               = 'Изображения нет'
-        %td= product.stock_number.to_s.rjust(4, '0')
+        %td= product.pretty_stock_number
         %td= product.name
         %td= number_to_currency product.price
         %td= product.slug

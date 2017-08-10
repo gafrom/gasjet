@@ -42,6 +42,10 @@ class Product < ApplicationRecord
     slug
   end
 
+  def pretty_stock_number
+    stock_number.to_s.rjust(4, '0')
+  end
+
   private
 
   def assign_stock_number
