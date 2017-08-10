@@ -17,7 +17,7 @@ class PriceList
     @sheet = @book.create_worksheet name: 'Gasjet прайс лист'
     @sheet.row(0).concat %w{Наименование Цена Категория Производитель Описание}
 
-    Product.all.each_with_index do |product, i|
+    Product.all.order(:category_id, :producer_id).each_with_index do |product, i|
       row = @sheet.row(i + 1)
       row.push product.name, 'по запроcу', product.category.name, product.producer.name, product.description
     end
